@@ -4,33 +4,43 @@
 Feature: startSharp meeting
   As a StartSharp enabled user, Sebastian wants to shedule meeting from a new business unit
 
-    @DoLogin
-      Scenario Outline: login
-        Given that Sebastian search on browser: StartSharp url
-        When He logs in with an enabled <user_name> and <password>
-        Then He should see the Dashboard
-      Examples:
-        | user_name | password |
-        | admin     | serenity |
+  Background:
+    Given that Sebastian navigates to StartSharp
+    And He logs in with an enabled user and password
+      | user_name | password  |
+      | admin     | serenity  |
 
-    @CreateBusinessUnit
+  @DoLogin
+  Scenario Outline: login
+
+    Then He should see the home_title
+    | home_title   |
+    | <home_title> |
+    Examples:
+      | home_title |
+      | Dashboard  |
+
+  @CreateBusinessUnit
       Scenario Outline: new business unit
-        Given that Sebastian login with <user_name> and <password>
-        When He navigates on the sidebar from Organization section to Business unit and creates a new business unit called <business_unit_name>
-        Then He should see the currently <business_unit_name> created from Business units list
+        When He creates a new business unit called business_unit_name
+        | business_unit_name   |
+        | <business_unit_name> |
+        Then He should see business_unit_name newly created in table
+        | business_unit_name   |
+        | <business_unit_name> |
       Examples:
-        | user_name | password | business_unit_name |
-        | admin     | serenity |  Unidad1           |
+        | business_unit_name |
+        |  Unidad1           |
 
     @CreateNewMeeting
     Scenario Outline: shedule meeting
-      Given the actor login with his own credentials <user_name> and <password>
-      When He navigates on the sidebar from Meeting section to Meetings
-      And He creates a new meeting filling fields: <meeting_name>, <meeting_type>, <meeting_number>, <start_date>, <start_hour>, <end_date>, <end_hour>, <location> , <unit>, <organized_by> , <reporter> , <attendee_name>  with the recently business unit created
-      Then He should see the <meeting_name> currently meeting created
+      When He fills in the required fields for the new meeting
+        | meeting_name   | meeting_type   | meeting_number   | start_date   | start_hour   | end_date   | end_hour   | location   | unit   | organized_by   | reporter   | attendee_name   |
+        | <meeting_name> | <meeting_type> | <meeting_number> | <start_date> | <start_hour> | <end_date> | <end_hour> | <location> | <unit> | <organized_by> | <reporter> | <attendee_name> |
+      Then He should see the new meeting created in the table
+        | meeting_name   |
+        | <meeting_name> |
 
     Examples:
-      | user_name | password | meeting_name | meeting_type | meeting_number | start_date   | start_hour | end_date   | end_hour | location | unit    | organized_by   | reporter   | attendee_name |
-      | admin     | serenity | Team banking | Team Weekly  | 7839           | 05/11/2022   | 11:00      | 05/11/2022 | 12:00    | On       | Unidad1 | Timothy        | Sean       | Alexis        |
-
-
+      | meeting_name | meeting_type | meeting_number | start_date   | start_hour | end_date   | end_hour | location | unit    | organized_by   | reporter   | attendee_name |
+      | Team banking | Team Weekly  | 7839           | 05/15/2022   | 11:00      | 05/20/2022 | 12:00    | On       | Unidad1 | Timothy        | Sean       | Alexis        |

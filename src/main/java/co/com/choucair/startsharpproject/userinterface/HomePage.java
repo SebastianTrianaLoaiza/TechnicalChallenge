@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 
 public class HomePage {
 
+    public static By MEETING_CREATED = By.xpath("(//a[contains(@data-item-type,'Pro.Meeting.Meeting')])[2]");
+    public static By DASHBOARD_TITLE = By.xpath("//body[1]/main[1]/section[1]/section[1]/h1[1]");
+
     // Sidebar organization section
     public static final Target SIDEBAR_ORGANIZATION_OPTION = Target.the("Organization").locatedBy("//span[normalize-space()='Organization']");
     public static final Target SIDEBAR_BUSINESS_UNITS_OPTION = Target.the("Business Units").locatedBy("//span[normalize-space()='Business Units']");
@@ -13,6 +16,7 @@ public class HomePage {
     public static final Target BUSINESS_UNIT_FINDER = Target.the("Business unit finder").locatedBy("//body[1]/main[1]/section[1]/div[1]/div[2]/div[1]/input[1]");
     public static final Target PARENT_UNIT_TEXTSEARCH = Target.the("Parent Unit").locatedBy("//body[1]/div[7]/div[1]/input[1]");
     public static final Target SAVE_UNIT_BUTTON = Target.the("Save Business Unit Button").locatedBy("//body[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]");
+    public static By BUSINESS_UNITS_RESULT = By.xpath("(//a[@data-item-type='Pro.Organization.BusinessUnit'])[2]");
 
     // Sidebar Meeting section
     public static final Target SIDEBAR_MEETING_OPTION = Target.the("Meeting").locatedBy("//span[normalize-space()='Meeting']");
@@ -40,5 +44,4 @@ public class HomePage {
     public static final Target MEETING_ATTENDEE_FIELD = Target.the("Meeting attendee").locatedBy("#s2id_autogen12_search");
     public static final Target MEETING_SAVE_BUTTON = Target.the("Meeting save button").locatedBy("//div[@class='tool-button save-and-close-button icon-tool-button']");
     public static final Target MEETING_FINDER = Target.the("Meeting finder").locatedBy("//body[1]/main[1]/section[1]/div[1]/div[2]/div[1]/input[1]");
-
 }
