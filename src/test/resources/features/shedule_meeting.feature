@@ -42,5 +42,5 @@ Feature: startSharp meeting
         | <meeting_name> |
 
     Examples:
-      | meeting_name | meeting_type | meeting_number | start_date   | start_hour | end_date   | end_hour | location | unit    | organized_by   | reporter   | attendee_name |
-      | Team banking | Team Weekly  | 7839           | 05/15/2022   | 11:00      | 05/20/2022 | 12:00    | On       | Unidad1 | Timothy        | Sean       | Alexis        |
+      | meeting_name    | meeting_type | meeting_number | start_date   | start_hour | end_date   | end_hour | location | unit    | organized_by   | reporter   | attendee_name |
+      | Banking Meeting | Team Weekly  | 7839           | 05/15/2022   | 11:00      | 05/20/2022 | 12:00    | On       | Unidad1 | Timothy        | Sean       | Alexis        |
