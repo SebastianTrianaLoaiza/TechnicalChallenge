@@ -30,7 +30,7 @@ Feature: startSharp meeting
         | <business_unit_name> |
       Examples:
         | business_unit_name |
-        |  Unidad1           |
+        |  Acme Corp.        |
 
     @CreateNewMeeting
     Scenario Outline: shedule meeting
